@@ -186,4 +186,42 @@ public class CustomerTest {
         assertTrue(invoice.contains(String.valueOf(expected)),
                 "Invoice must reflect the discounted offer amount");
     }
+
+    @Test
+    void tradeInOfferAmountIsNetValue() {
+        assertEquals(45000, tradeIn.offerAmount(), 0.001);
+    }
+
+    @Test
+    void tradeInOfferAmountIsNeverNegative() {
+        TradeInCustomer c = new TradeInCustomer("X","Y","x@y.com","000","C999", 10000, 50000);
+        assertEquals(0.0, c.offerAmount(), 0.001,
+                "offerAmount() must return 0.0 when finance exceeds trade-in value");
+    }
+
+    @Test
+    void tradeInUpdateTradeInValueChangesOfferAmount() {
+        tradeIn.updateTradeInValue(70000);
+        assertEquals(60000, tradeIn.offerAmount(), 0.001);
+    }
+
+    @Test
+    void tradeInUpdateTradeInValueThrowsForNegative() {
+        assertThrows(IllegalArgumentException.class,
+                () -> tradeIn.updateTradeInValue(-1));
+    }
+
+    @Test
+    void tradeInUpdateOutstandingFinanceThrowsForNegative() {
+        assertThrows(IllegalArgumentException.class,
+                () -> tradeIn.updateOutstandingFinance(-1));
+    }
+
+    @Test
+    void tradeInConstructorThrowsForNegativeValues() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new TradeInCustomer("X","Y","x@y.com","000","C999",-1, 0));
+        assertThrows(IllegalArgumentException.class,
+                () -> new TradeInCustomer("X","Y","x@y.com","000","C999", 0, -1));
+    }
 }
