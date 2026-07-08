@@ -17,9 +17,9 @@ public class CustomerTest {
 
     @BeforeEach
     void setUp() {
-        walkIn = new WalkInCustomer("Sizwe", "Sabisa", "sabisa@gmail.com", "071 111 1111", "C001", 65000);
-        online = new OnlineCustomer("Stara", "Dambuza", "stara@gmail.com", "071 222 2222", "C002", 95000, "seputswa");
-        tradeIn = new TradeInCustomer("Dzoyo", "Mpho", "mlungu@gmail.com", "071 333 3333", "C003", 45000, 40000);
+        walkIn  = new WalkInCustomer("Alice",  "Dlamini", "alice@email.com",  "071 111 1111", "C001", 85000);
+        online  = new OnlineCustomer("Bob",    "Nkosi",   "bob@email.com",    "071 222 2222", "C002", 85000, "bob_nkosi");
+        tradeIn = new TradeInCustomer("Carol", "Botha",   "carol@email.com",  "071 333 3333", "C003", 55000, 10000);
     }
 
     @Test
