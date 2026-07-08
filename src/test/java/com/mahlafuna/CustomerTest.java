@@ -70,4 +70,46 @@ public class CustomerTest {
                 () -> Customer.class.getMethod("updateCustomerId", String.class),
                 "customerId must be immutable — no updater");
     }
+
+    @Test
+    void customerIdReturnsCorrectValue() {
+        assertEquals("C001", walkIn.customerId());
+        assertEquals("C002", online.customerId());
+        assertEquals("C003", tradeIn.customerId());
+    }
+
+    @Test
+    void walkInOfferAmountIsOfferedPrice() {
+        assertEquals(85000, walkIn.offerAmount(), 0.001);
+    }
+
+    @Test
+    void walkInUpdateOfferedPriceChangesValue() {
+        walkIn.updateOfferedPrice(90000);
+        assertEquals(90000, walkIn.offerAmount(), 0.001);
+    }
+
+    @Test
+    void walkInUpdateOfferedPriceThrowsForNegative() {
+        assertThrows(IllegalArgumentException.class,
+                () -> walkIn.updateOfferedPrice(-1));
+    }
+
+    @Test
+    void walkInConstructorThrowsForNegativePrice() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new WalkInCustomer("X", "Y", "x@y.com", "000", "C999", -500));
+    }
+
+    @Test
+    void walkInCustomerTypeIsCorrect() {
+        assertEquals("Walk-In", walkIn.customerType());
+    }
+
+    @Test
+    void walkInRoleIsCorrect() {
+        assertEquals("Walk-In Customer", walkIn.role());
+    }
+
+
 }
