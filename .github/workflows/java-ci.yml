@@ -1,0 +1,51 @@
+
+name: Java CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/checkout@v3
+        with:
+          clean: 'true'
+
+      - name: Install additional dependencies
+        run: |
+          git config --global user.name "name"
+          git config --global user.email "@student"
+          echo "Configured git user:"
+          git config --global user.name
+          git config --global user.email
+
+      - name: Verify Java version
+        run: java -version
+
+      - name: Build with Maven
+        run: mvn clean compile
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/checkout@v3
+        with:
+          clean: 'true'
+
+      - name: Run tests
+        run: mvn clean test
