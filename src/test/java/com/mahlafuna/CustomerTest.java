@@ -111,5 +111,36 @@ public class CustomerTest {
         assertEquals("Walk-In Customer", walkIn.role());
     }
 
+    @Test
+    void walkInGenerateInvoiceContainsNameAndAmount() {
+        String invoice = walkIn.generateInvoice();
+        assertTrue(invoice.contains("Alice Dlamini"), "Invoice must contain full name");
+        assertTrue(invoice.contains("85000"),         "Invoice must contain offer amount");
+    }
 
+    @Test
+    void walkInIsBillable() {
+        assertInstanceOf(Billable.class, walkIn,
+                "WalkInCustomer must implement Billable");
+    }
+
+    @Test
+    void walkInInvoiceThroughBillableReference() {
+        Billable b = new WalkInCustomer("Alice", "Dlamini", "alice@email.com", "071 111 1111", "C001", 85000);
+        assertTrue(b.generateInvoice().contains("Alice Dlamini"),
+                "generateInvoice() must work through a Billable reference");
+    }
+
+    @Test
+    void onlineOfferAmountAppliesFivePercentFee() {
+        double expected = 85000 * OnlineCustomer.ONLINE_FEE_MULTIPLIER;
+        assertEquals(expected, online.offerAmount(), 0.001);
+    }
+
+    @Test
+    void onlineUpdateBaseOfferChangesOfferAmount() {
+        online.updateBaseOffer(100000);
+        double expected = 100000 * OnlineCustomer.ONLINE_FEE_MULTIPLIER;
+        assertEquals(expected, online.offerAmount(), 0.001);
+    }
 }
