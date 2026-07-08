@@ -224,4 +224,49 @@ public class CustomerTest {
         assertThrows(IllegalArgumentException.class,
                 () -> new TradeInCustomer("X","Y","x@y.com","000","C999", 0, -1));
     }
+
+    @Test
+    void tradeInCustomerTypeIsCorrect() {
+        assertEquals("Trade-In", tradeIn.customerType());
+    }
+
+    @Test
+    void tradeInRoleIsCorrect() {
+        assertEquals("Trade-In Customer", tradeIn.role());
+    }
+
+    @Test
+    void tradeInIsBillable() {
+        assertInstanceOf(Billable.class, tradeIn,
+                "TradeInCustomer must implement Billable");
+    }
+
+    @Test
+    void offerAmountDispatchesThroughCustomerReference() {
+        Customer c = new WalkInCustomer("Alice","Dlamini","a@b.com","000","C001", 85000);
+        assertEquals(85000, c.offerAmount(), 0.001,
+                "offerAmount() must dispatch correctly through a Customer reference");
+    }
+
+    @Test
+    void offerAmountDispatchesForOnlineThroughCustomerReference() {
+        Customer c = new OnlineCustomer("Bob","Nkosi","b@b.com","000","C002", 85000, "bob");
+        double expected = 85000 * OnlineCustomer.ONLINE_FEE_MULTIPLIER;
+        assertEquals(expected, c.offerAmount(), 0.001,
+                "offerAmount() must dispatch correctly for OnlineCustomer through Customer reference");
+    }
+
+    @Test
+    void roleDispatchesThroughCustomerReference() {
+        Customer c = new TradeInCustomer("Carol","Botha","c@b.com","000","C003", 55000, 10000);
+        assertEquals("Trade-In Customer", c.role(),
+                "role() must dispatch correctly through a Customer reference");
+    }
+
+    @Test
+    void offerAmountsReflectDifferentCalculations() {
+        // Same base value of 85000, but online applies a discount
+        assertNotEquals(walkIn.offerAmount(), online.offerAmount(),
+                "WalkIn and Online offer amounts should differ for same base value");
+    }
 }
