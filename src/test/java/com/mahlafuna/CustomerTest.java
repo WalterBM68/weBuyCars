@@ -143,4 +143,47 @@ public class CustomerTest {
         double expected = 100000 * OnlineCustomer.ONLINE_FEE_MULTIPLIER;
         assertEquals(expected, online.offerAmount(), 0.001);
     }
+
+    @Test
+    void onlineUpdateBaseOfferThrowsForNegative() {
+        assertThrows(IllegalArgumentException.class,
+                () -> online.updateBaseOffer(-1));
+    }
+
+    @Test
+    void onlinePortalUsernameIsImmutable() {
+        assertThrows(NoSuchMethodException.class,
+                () -> OnlineCustomer.class.getMethod("updatePortalUsername", String.class),
+                "portalUsername must be immutable — no updater");
+    }
+
+    @Test
+    void onlinePortalUsernameReturnsCorrectValue() {
+        assertEquals("bob_nkosi", online.portalUsername());
+    }
+
+    @Test
+    void onlineCustomerTypeIsCorrect() {
+        assertEquals("Online", online.customerType());
+    }
+
+    @Test
+    void onlineRoleIsCorrect() {
+        assertEquals("Online Customer", online.role());
+    }
+
+    @Test
+    void onlineIsBillable() {
+        assertInstanceOf(Billable.class, online,
+                "OnlineCustomer must implement Billable");
+    }
+
+    @Test
+    void onlineInvoiceReflectsDiscountedAmount() {
+        String invoice = online.generateInvoice();
+        assertTrue(invoice.contains("Bob Nkosi"), "Invoice must contain full name");
+        double expected = 85000 * OnlineCustomer.ONLINE_FEE_MULTIPLIER;
+        assertTrue(invoice.contains(String.valueOf(expected)),
+                "Invoice must reflect the discounted offer amount");
+    }
 }
