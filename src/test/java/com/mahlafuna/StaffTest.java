@@ -7,6 +7,9 @@ import java.lang.reflect.Modifier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for Staff and both Staff subclasses.
+ */
 public class StaffTest {
 
     private Salesperson salesperson;
