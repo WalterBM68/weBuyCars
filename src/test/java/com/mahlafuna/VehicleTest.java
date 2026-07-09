@@ -7,6 +7,9 @@ import java.lang.reflect.Modifier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests for Vehicle and all three Vehicle subclasses.
+ */
 public class VehicleTest {
 
     private Sedan  sedan;
