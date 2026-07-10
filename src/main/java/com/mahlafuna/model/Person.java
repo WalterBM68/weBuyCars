@@ -17,6 +17,10 @@ public abstract class Person {
         return firstName;
     }
 
+    public String fullName() {
+        return firstName + lastName;
+    }
+
     public String lastName() {
         return lastName;
     }
