@@ -1,5 +1,6 @@
 package com.mahlafuna;
 
+import com.mahlafuna.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
