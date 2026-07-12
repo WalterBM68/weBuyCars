@@ -6,7 +6,7 @@ public abstract class Person {
     private String email;
     private String phoneNumber;
 
-    public Person(String email, String phoneNumber, String lastName, String firstName) {
+    public Person(String firstName, String lastName, String email, String phoneNumber) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.lastName = lastName;
@@ -18,7 +18,7 @@ public abstract class Person {
     }
 
     public String fullName() {
-        return firstName + lastName;
+        return String.format("%s %s", firstName, lastName);
     }
 
     public String lastName() {
