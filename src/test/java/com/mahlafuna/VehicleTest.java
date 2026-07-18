@@ -1,5 +1,6 @@
 package com.mahlafuna;
 
+import com.mahlafuna.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class VehicleTest {
 
-    private Sedan  sedan;
+    private Sedan sedan;
     private SUV    suv;
     private Bakkie bakkieDouble;
     private Bakkie bakkieSingle;
