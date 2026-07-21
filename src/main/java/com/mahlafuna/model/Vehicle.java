@@ -17,10 +17,10 @@ public abstract class Vehicle {
         this.available = false;
     }
 
+    //Setters
     public void updateYear(int year) {
         this.year = year;
     }
-
     public void updateMileage(int mileage) {
         this.mileage = mileage;
     }
@@ -31,6 +31,7 @@ public abstract class Vehicle {
         this.available = true;
     }
 
+    //Getters
     public int mileage() {
         return mileage;
     }
@@ -46,9 +47,7 @@ public abstract class Vehicle {
     public String registrationNumber() {
         return registrationNumber;
     }
-    public boolean available() {
-        return available;
-    }
+    public boolean available() { return available; }
 
     public abstract double listingPrice();
     public abstract String vehicleType();
