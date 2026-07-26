@@ -9,7 +9,9 @@ public class Sedan extends Vehicle {
 
     public Sedan(String registrationNumber, String make, String model, int year, int mileage, int numberOfDoors) {
         super(registrationNumber, make, model, year, mileage);
-        this.numberOfDoors = numberOfDoors;
+        if (numberOfDoors < 2)
+            throw new IllegalArgumentException();
+        else this.numberOfDoors = numberOfDoors;
     }
 
     public int numberOfDoors() {
