@@ -13,15 +13,20 @@ public abstract class Vehicle {
         this.make = make;
         this.model = model;
         this.year = year;
-        this.mileage = mileage;
-        this.available = false;
+        updateMileage(mileage);
+        this.available = true;
     }
 
     //Setters
     public void updateYear(int year) {
+        int future = java.time.Year.now().getValue() + 1;
+        if (year +1 > year)
+            throw new IllegalArgumentException();
         this.year = year;
     }
     public void updateMileage(int mileage) {
+        if (mileage < 0)
+            throw new IllegalArgumentException();
         this.mileage = mileage;
     }
     public void markSold() {
@@ -48,6 +53,18 @@ public abstract class Vehicle {
         return registrationNumber;
     }
     public boolean available() { return available; }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "registrationNumber='" + registrationNumber + '\'' +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", available=" + available +
+                '}';
+    }
 
     public abstract double listingPrice();
     public abstract String vehicleType();
