@@ -19,8 +19,8 @@ public abstract class Vehicle {
 
     //Setters
     public void updateYear(int year) {
-        int future = java.time.Year.now().getValue() + 1;
-        if (year +1 > year)
+        int future = java.time.Year.now().getValue();
+        if (year < 1990 || year > future)
             throw new IllegalArgumentException();
         this.year = year;
     }
