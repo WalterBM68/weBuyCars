@@ -19,8 +19,10 @@ public class SUV extends Vehicle {
 
     @Override
     public double listingPrice() {
-        if (!AWD_PREMIUM)
-        return Math.max(BASE_PRICE - mileage() * PRICE_PER_KM + AWD_PREMIUM, MINIMUM_PRICE);
+        if (allWheelDrive() )
+            return Math.max(BASE_PRICE - mileage() * PRICE_PER_KM + AWD_PREMIUM, MINIMUM_PRICE);
+        else
+            return Math.max(BASE_PRICE - mileage() * PRICE_PER_KM, MINIMUM_PRICE);
     }
 
     @Override
