@@ -1,5 +1,7 @@
 package com.mahlafuna;
 
+import com.mahlafuna.model.*;
+import com.mahlafuna.service.Dealership;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for the Dealership service class — management and polymorphic reporting.
  */
 public class DealershipTest {
-    private Dealership    dealership;
-    private Sedan         sedan;
+    private Dealership dealership;
+    private Sedan sedan;
     private SUV           suv;
     private WalkInCustomer  walkIn;
     private OnlineCustomer  online;
