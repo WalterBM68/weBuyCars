@@ -21,9 +21,47 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle) { this.inventory.add(vehicle); }
 
+    public void removeVehicle(String regNumber) {
+        Vehicle found = findVehicle(regNumber);
+
+        if (found == null) throw new IllegalArgumentException();
+        else inventory.remove(found);
+    }
+
+    public Vehicle findVehicle(String regNumber) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.registrationNumber().equals(regNumber))
+                return vehicle;
+        }
+        return null;
+    }
+
+    public List<Vehicle> availableVehicles() {
+        return inventory;
+    }
+
     public void addCustomer(Customer customer) { this.customers.add(customer); }
+    public Customer findCustomer(String customerId) {
+        for (Customer customer : customers) {
+            if (customer.customerId().equals(customerId))
+                return customer;
+        }
+        return null;
+    }
+
+    public List<Customer> activeCustomers() {
+        return customers;
+    }
 
     public void addStaff(Staff staff) { this.staffList.add(staff); }
+
+    public Staff findStaff(String employeeId) {
+        for (Staff staff : staffList) {
+            if (staff.employeeId().equals(employeeId))
+                return staff;
+        }
+        return null;
+    }
 
     public String dealershipName() {
         return dealershipName;
@@ -34,5 +72,23 @@ public class Dealership {
     public List<Customer> customers() { return Collections.unmodifiableList(customers); }
     public List<Staff> staffList() {
         return Collections.unmodifiableList(staffList);
+    }
+
+    public double totalStockValue() {
+        double sum = 0.0;
+
+        for (Vehicle vehicle : inventory) {
+            sum += vehicle.listingPrice();
+        }
+        return sum;
+    }
+
+    public double totalCommissionDue() {
+        double sum = 0.0;
+
+        for (Staff staff : staffList) {
+            sum += staff.monthlySalary();
+        }
+        return sum;
     }
 }
