@@ -1,6 +1,7 @@
 package com.mahlafuna.service;
 
 import com.mahlafuna.model.Customer;
+import com.mahlafuna.model.Person;
 import com.mahlafuna.model.Staff;
 import com.mahlafuna.model.Vehicle;
 
@@ -90,5 +91,10 @@ public class Dealership {
             sum += staff.monthlySalary();
         }
         return sum;
+    }
+
+    public void printAllRoles(List<Person> people) {
+        for (Person person : people)
+            System.out.println(person.role());
     }
 }
