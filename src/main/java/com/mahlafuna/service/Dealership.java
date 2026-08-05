@@ -9,9 +9,9 @@ import java.util.*;
 
 public class Dealership {
     private final String dealershipName;
-    private List<Vehicle> inventory;
-    private List<Customer> customers;
-    private List<Staff> staffList;
+    private final List<Vehicle> inventory;
+    private final List<Customer> customers;
+    private final List<Staff> staffList;
 
     public Dealership(String dealershipName) {
         this.dealershipName = dealershipName;
@@ -48,6 +48,7 @@ public class Dealership {
     }
 
     public void addCustomer(Customer customer) { this.customers.add(customer); }
+
     public Customer findCustomer(String customerId) {
         for (Customer customer : customers) {
             if (customer.customerId().equals(customerId))
