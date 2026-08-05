@@ -57,7 +57,13 @@ public class Dealership {
     }
 
     public List<Customer> activeCustomers() {
-        return customers;
+        List<Customer> active = new ArrayList<>();
+
+        for (Customer customer : customers) {
+            if (customer.active())
+                active.add(customer);
+        }
+        return active;
     }
 
     public void addStaff(Staff staff) { this.staffList.add(staff); }
