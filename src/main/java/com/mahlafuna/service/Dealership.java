@@ -38,7 +38,13 @@ public class Dealership {
     }
 
     public List<Vehicle> availableVehicles() {
-        return inventory;
+        List<Vehicle> avail = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.available())
+                avail.add(vehicle);
+        }
+        return avail;
     }
 
     public void addCustomer(Customer customer) { this.customers.add(customer); }
@@ -64,16 +70,10 @@ public class Dealership {
         return null;
     }
 
-    public String dealershipName() {
-        return dealershipName;
-    }
-    public List<Vehicle> inventory() {
-        return Collections.unmodifiableList(inventory);
-    }
+    public String dealershipName() { return dealershipName; }
+    public List<Vehicle> inventory() { return Collections.unmodifiableList(inventory); }
     public List<Customer> customers() { return Collections.unmodifiableList(customers); }
-    public List<Staff> staffList() {
-        return Collections.unmodifiableList(staffList);
-    }
+    public List<Staff> staffList() { return Collections.unmodifiableList(staffList); }
 
     public double totalStockValue() {
         double sum = 0.0;
