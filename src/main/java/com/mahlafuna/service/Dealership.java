@@ -85,7 +85,8 @@ public class Dealership {
         double sum = 0.0;
 
         for (Vehicle vehicle : inventory) {
-            sum += vehicle.listingPrice();
+            if (vehicle.available())
+                sum += vehicle.listingPrice();
         }
         return sum;
     }
