@@ -1,9 +1,6 @@
 package com.mahlafuna.service;
 
-import com.mahlafuna.model.Customer;
-import com.mahlafuna.model.Person;
-import com.mahlafuna.model.Staff;
-import com.mahlafuna.model.Vehicle;
+import com.mahlafuna.model.*;
 
 import java.util.*;
 
@@ -25,8 +22,10 @@ public class Dealership {
     public void removeVehicle(String regNumber) {
         Vehicle found = findVehicle(regNumber);
 
-        if (found == null) throw new IllegalArgumentException();
-        else inventory.remove(found);
+        if (found == null)
+            throw new IllegalArgumentException();
+        else
+            inventory.remove(found);
     }
 
     public Vehicle findVehicle(String regNumber) {
