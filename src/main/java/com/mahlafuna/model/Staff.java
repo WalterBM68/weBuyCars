@@ -1,5 +1,8 @@
 package com.mahlafuna.model;
 
+/**
+ * The Staff class that's helps to identify which staff was registered
+ */
 public abstract class Staff extends Person {
     private final String employeeId;
     private int yearsOfService;
