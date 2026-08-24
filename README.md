@@ -74,3 +74,13 @@ webuycars/
 ---
 
 ## Testing
+
+```bash
+mvn clean test
+```
+
+---
+
+## Implementation Steps
+
+---
