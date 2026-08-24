@@ -68,3 +68,9 @@ webuycars/
       VehicleTest.java
       DealershipTest.java
 ```
+
+> **Do NOT modify any test files or `Main.java`.**
+
+---
+
+## Testing
