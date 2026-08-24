@@ -1,4 +1,4 @@
-# 🚗 WeBuyCars — Java OOP Assessment
+# 🚗 WeBuyCars — Java OOP Small Project
 
 ## Overview
 
