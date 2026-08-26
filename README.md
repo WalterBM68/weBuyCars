@@ -157,3 +157,22 @@ Calls `super()`. Sets `active` to `true`.
 | `customerType()` | **Abstract** — returns a short channel label        |
 
 ---
+
+### Step 4 - Implement `WalkInCustomer`, `OnlineCustomer`, `TradeInCustomer`
+
+All three extend `Customer` and implement `Billable`. Use `@Override` on every overridden method.
+
+---
+
+#### `WalkInCustomer`
+
+|                              | Details                                                            |
+|------------------------------|--------------------------------------------------------------------|
+| Extra field                  | `offeredPrice (double)` — mutable. Constructor throws if negative. |
+| `offeredPrice()`             | Returns the offered price                                          |
+| `updateOfferedPrice(double)` | Throws `IllegalArgumentException` if negative                      |
+| `offerAmount()`              | Returns `offeredPrice`                                             |
+| `customerType()`             | Returns `"Walk-In"`                                                |
+| `role()`                     | Returns `"Walk-In Customer"`                                       |
+| `generateInvoice()`          | `"Invoice for [fullName] \| Offer: R[offerAmount]"`                |
+
