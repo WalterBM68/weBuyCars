@@ -176,3 +176,18 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `role()`                     | Returns `"Walk-In Customer"`                                       |
 | `generateInvoice()`          | `"Invoice for [fullName] \| Offer: R[offerAmount]"`                |
 
+---
+
+#### `OnlineCustomer`
+
+|                           | Details                                                                    |
+|---------------------------|----------------------------------------------------------------------------|
+| Extra fields              | `baseOffer (double)` — mutable. `portalUsername (String)` — **immutable**. |
+| `ONLINE_FEE_MULTIPLIER`   | `public static final double ONLINE_FEE_MULTIPLIER = 0.95`                  |
+| `updateBaseOffer(double)` | Throws if negative                                                         |
+| `portalUsername()`        | Returns username. No updater.                                              |
+| `offerAmount()`           | Returns `baseOffer * 0.95`                                                 |
+| `customerType()`          | Returns `"Online"`                                                         |
+| `role()`                  | Returns `"Online Customer"`                                                |
+| `generateInvoice()`       | Includes the discounted offer amount                                       |
+
