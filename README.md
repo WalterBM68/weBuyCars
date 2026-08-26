@@ -129,3 +129,31 @@ Root of the entire people hierarchy.
 | `role()`                    | **Abstract** — every subclass provides its own role label |
 
 ---
+
+### Step 3 - Implement `Customer` (Abstract)
+
+**File:** `src/main/java/com/mahlafuna/model/Customer.java`
+
+#### Additional Fields
+
+| Field        | Type      | Immutable?                         |
+|--------------|-----------|------------------------------------|
+| `customerId` | `String`  | Yes                                |
+| `active`     | `boolean` | No — `activate()` / `deactivate()` |
+
+#### Constructor
+
+Calls `super()`. Sets `active` to `true`.
+
+#### Methods
+
+| Method           | Details                                             |
+|------------------|-----------------------------------------------------|
+| `customerId()`   | Returns customer ID.                                |
+| `active()`       | Returns active status                               |
+| `activate()`     | Sets `active` to `true`                             |
+| `deactivate()`   | Sets `active` to `false`                            |
+| `offerAmount()`  | **Abstract** — each subclass calculates differently |
+| `customerType()` | **Abstract** — returns a short channel label        |
+
+---
