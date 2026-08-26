@@ -84,3 +84,17 @@ mvn clean test
 ## Implementation Steps
 
 ---
+
+## Step 1 - Implement `Billable` (Interface)
+
+**File:** `src/main/java/com/mahlafuna/model/Billable.java`
+
+`Billable` is an interface — not an abstract class. Think carefully about which types in the system should implement it and which should not, and why.
+
+| Method              | Details                                                                                                                                           |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `generateInvoice()` | Returns a formatted invoice string including the customer's full name and offer amount. Example: `"Invoice for Alice Dlamini \| Offer: R85000.0"` |
+
+> **Design Question:** Why is `Billable` an interface rather than part of `Customer`? Which concrete classes should implement it?
+
+---
