@@ -191,3 +191,20 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `role()`                  | Returns `"Online Customer"`                                                |
 | `generateInvoice()`       | Includes the discounted offer amount                                       |
 
+---
+
+#### `TradeInCustomer`
+
+|                                    | Details                                                                                                             |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Extra fields                       | `tradeInValue (double)` and `outstandingFinance (double)` — both mutable. Constructor throws if either is negative. |
+| `updateTradeInValue(double)`       | Throws if negative                                                                                                  |
+| `updateOutstandingFinance(double)` | Throws if negative                                                                                                  |
+| `offerAmount()`                    | Returns `tradeInValue - outstandingFinance`. Returns `0.0` if the result would be negative.                         |
+| `customerType()`                   | Returns `"Trade-In"`                                                                                                |
+| `role()`                           | Returns `"Trade-In Customer"`                                                                                       |
+| `generateInvoice()`                | Includes the net offer amount                                                                                       |
+
+> **Design Tip — Interface vs Abstract Class:** `Billable` is an interface because not every `Person` is billable — only customers are. An abstract class would force every subclass (including `Staff`) to deal with invoicing, which makes no sense. Use an interface when a capability applies to some types across different branches of a hierarchy.
+
+---
