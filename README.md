@@ -98,3 +98,34 @@ mvn clean test
 > **Design Question:** Why is `Billable` an interface rather than part of `Customer`? Which concrete classes should implement it?
 
 ---
+
+### Step 2 - Implement `Person` (Abstract)
+
+**File:** `src/main/java/com/mahlafuna/model/Person.java`
+
+Root of the entire people hierarchy.
+
+#### Fields
+
+| Field         | Type     | Immutable?                       |
+|---------------|----------|----------------------------------|
+| `firstName`   | `String` | Yes                              |
+| `lastName`    | `String` | Yes                              |
+| `email`       | `String` | No — `updateEmail(String)`       |
+| `phoneNumber` | `String` | No — `updatePhoneNumber(String)` |
+
+#### Methods
+
+| Method                      | Details                                                   |
+|-----------------------------|-----------------------------------------------------------|
+| `firstName()`               | Returns first name                                        |
+| `lastName()`                | Returns last name                                         |
+| `fullName()`                | Returns `firstName + " " + lastName`                      |
+| `email()`                   | Returns email                                             |
+| `phoneNumber()`             | Returns phone number                                      |
+| `updateEmail(String)`       | Updates email                                             |
+| `updatePhoneNumber(String)` | Updates phone number                                      |
+| `toString()`                | Includes full name and email                              |
+| `role()`                    | **Abstract** — every subclass provides its own role label |
+
+---
