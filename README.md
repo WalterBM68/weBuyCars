@@ -228,3 +228,23 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `duties()`        | Returns a description of key responsibilities |
 
 ---
+
+### Step 6 — Implement `Salesperson` and `Valuator`
+
+---
+
+#### `Salesperson`
+
+|                       | Details                                                           |
+|-----------------------|-------------------------------------------------------------------|
+| Extra field           | `dealsClosed (int)` — defaults to `0`                             |
+| `BASE_SALARY`         | `public static final double BASE_SALARY = 15_000.00`              |
+| `COMMISSION_PER_DEAL` | `public static final double COMMISSION_PER_DEAL = 750.00`         |
+| `dealsClosed()`       | Returns deals closed this month                                   |
+| `recordDeal()`        | Increments `dealsClosed` by 1                                     |
+| `resetDeals()`        | Resets `dealsClosed` to 0                                         |
+| `monthlySalary()`     | `BASE_SALARY + (dealsClosed × COMMISSION_PER_DEAL)`               |
+| `duties()`            | Returns `"Customer liaison, vehicle sales, and deal negotiation"` |
+| `role()`              | Returns `"Salesperson"`                                           |
+
+---
