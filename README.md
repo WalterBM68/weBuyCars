@@ -248,3 +248,17 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `role()`              | Returns `"Salesperson"`                                           |
 
 ---
+
+#### `Valuator`
+
+|                   | Details                                                                   |
+|-------------------|---------------------------------------------------------------------------|
+| Extra field       | `certification (String)` — **immutable**                                  |
+| `BASE_SALARY`     | `public static final double BASE_SALARY = 20_000.00`                      |
+| `BONUS_PER_YEAR`  | `public static final double BONUS_PER_YEAR = 500.00`                      |
+| `certification()` | Returns certification. No updater.                                        |
+| `monthlySalary()` | `BASE_SALARY + (yearsOfService × BONUS_PER_YEAR)`                         |
+| `duties()`        | Returns `"Vehicle inspection, condition reporting, and price assessment"` |
+| `role()`          | Returns `"Valuator (" + certification + ")"`                              |
+
+---
