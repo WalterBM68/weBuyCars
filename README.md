@@ -208,3 +208,23 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 > **Design Tip — Interface vs Abstract Class:** `Billable` is an interface because not every `Person` is billable — only customers are. An abstract class would force every subclass (including `Staff`) to deal with invoicing, which makes no sense. Use an interface when a capability applies to some types across different branches of a hierarchy.
 
 ---
+
+### Step 5 — Implement `Staff` (Abstract)
+
+**File:** `src/main/java/com/mahlafuna/model/Staff.java`
+
+#### Additional Fields
+
+| Field            | Type     | Immutable?                                          |
+|------------------|----------|-----------------------------------------------------|
+| `employeeId`     | `String` | Yes                                                 |
+| `yearsOfService` | `int`    | No — `updateYearsOfService(int)` throws if negative |
+
+#### Abstract Methods
+
+| Method            | Details                                       |
+|-------------------|-----------------------------------------------|
+| `monthlySalary()` | Returns monthly gross salary                  |
+| `duties()`        | Returns a description of key responsibilities |
+
+---
