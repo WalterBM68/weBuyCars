@@ -262,3 +262,20 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `role()`          | Returns `"Valuator (" + certification + ")"`                              |
 
 ---
+
+### Step 7 — Implement `Vehicle` (Abstract)
+
+**File:** `src/main/java/com/mahlafuna/model/Vehicle.java`
+
+#### Fields
+
+| Field                | Type      | Immutable?                                                         |
+|----------------------|-----------|--------------------------------------------------------------------|
+| `registrationNumber` | `String`  | Yes                                                                |
+| `make`               | `String`  | Yes                                                                |
+| `model`              | `String`  | Yes                                                                |
+| `year`               | `int`     | No — `updateYear(int)` throws if before 1900 or after current year |
+| `mileage`            | `int`     | No — `updateMileage(int)` throws if negative                       |
+| `available`          | `boolean` | No — `markSold()` / `markAvailable()`                              |
+
+
