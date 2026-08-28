@@ -278,4 +278,11 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `mileage`            | `int`     | No — `updateMileage(int)` throws if negative                       |
 | `available`          | `boolean` | No — `markSold()` / `markAvailable()`                              |
 
+#### Abstract Methods
 
+| Method           | Details                                   |
+|------------------|-------------------------------------------|
+| `listingPrice()` | Returns the calculated listing price      |
+| `vehicleType()`  | Returns a short type label e.g. `"Sedan"` |
+
+---
