@@ -305,3 +305,17 @@ All three extend `Vehicle`. Use `@Override` on all overridden methods.
 | `vehicleType()`  | Returns `"Sedan"`                                         |
 
 ---
+
+#### `SUV`
+
+|                  | Details                                                                          |
+|------------------|----------------------------------------------------------------------------------|
+| Extra field      | `isAllWheelDrive (boolean)` — **immutable**. Accessor: `allWheelDrive()`.        |
+| `BASE_PRICE`     | `R150 000.00`                                                                    |
+| `PRICE_PER_KM`   | `R2.00`                                                                          |
+| `AWD_PREMIUM`    | `R15 000.00`                                                                     |
+| `MINIMUM_PRICE`  | `R40 000.00`                                                                     |
+| `listingPrice()` | `max(BASE_PRICE - mileage × PRICE_PER_KM + AWD_PREMIUM (if AWD), MINIMUM_PRICE)` |
+| `vehicleType()`  | Returns `"SUV"`                                                                  |
+
+---
