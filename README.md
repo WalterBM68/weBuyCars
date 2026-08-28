@@ -286,3 +286,22 @@ All three extend `Customer` and implement `Billable`. Use `@Override` on every o
 | `vehicleType()`  | Returns a short type label e.g. `"Sedan"` |
 
 ---
+
+### Step 8 — Implement `Sedan`, `SUV`, `Bakkie`
+
+All three extend `Vehicle`. Use `@Override` on all overridden methods.
+
+---
+
+#### `Sedan`
+
+|                  | Details                                                   |
+|------------------|-----------------------------------------------------------|
+| Extra field      | `numberOfDoors (int)` — **immutable**. Throws if `< 2`.   |
+| `BASE_PRICE`     | `R80 000.00`                                              |
+| `PRICE_PER_KM`   | `R1.50`                                                   |
+| `MINIMUM_PRICE`  | `R20 000.00`                                              |
+| `listingPrice()` | `max(BASE_PRICE - mileage × PRICE_PER_KM, MINIMUM_PRICE)` |
+| `vehicleType()`  | Returns `"Sedan"`                                         |
+
+---
