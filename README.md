@@ -319,3 +319,17 @@ All three extend `Vehicle`. Use `@Override` on all overridden methods.
 | `vehicleType()`  | Returns `"SUV"`                                                                  |
 
 ---
+
+#### `Bakkie`
+
+|                      | Details                                                                                        |
+|----------------------|------------------------------------------------------------------------------------------------|
+| Extra field          | `isDoubleCab (boolean)` — **immutable**. Accessor: `doubleCab()`.                              |
+| `BASE_PRICE`         | `R120 000.00`                                                                                  |
+| `PRICE_PER_KM`       | `R1.80`                                                                                        |
+| `DOUBLE_CAB_PREMIUM` | `R10 000.00`                                                                                   |
+| `MINIMUM_PRICE`      | `R30 000.00`                                                                                   |
+| `listingPrice()`     | `max(BASE_PRICE - mileage × PRICE_PER_KM + DOUBLE_CAB_PREMIUM (if double cab), MINIMUM_PRICE)` |
+| `vehicleType()`      | Returns `"Bakkie (Double Cab)"` or `"Bakkie (Single Cab)"`                                     |
+
+---
