@@ -371,3 +371,5 @@ All three extend `Vehicle`. Use `@Override` on all overridden methods.
 > **Design Tip — Liskov Substitution:** `printAllRoles(List<Person> people)` accepts any list of `Person` subtypes — `Customer`, `Staff`, `WalkInCustomer`, `Valuator` — because they all share the `role()` method. This is Liskov substitution in practice: any subtype can stand in wherever the parent type is expected.
 
 ---
+
+*Keep the cars moving! 🚗*
