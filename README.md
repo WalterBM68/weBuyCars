@@ -333,3 +333,17 @@ All three extend `Vehicle`. Use `@Override` on all overridden methods.
 | `vehicleType()`      | Returns `"Bakkie (Double Cab)"` or `"Bakkie (Single Cab)"`                                     |
 
 ---
+
+### Step 9 — Implement `Dealership`
+
+**File:** `src/main/java/com/mahlafuna/service/Dealership.java`
+
+#### Fields
+
+| Field            | Type                 |
+|------------------|----------------------|
+| `dealershipName` | `String` — immutable |
+| `inventory`      | `List<Vehicle>`      |
+| `customers`      | `List<Customer>`     |
+| `staffList`      | `List<Staff>`        |
+
