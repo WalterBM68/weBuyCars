@@ -347,3 +347,27 @@ All three extend `Vehicle`. Use `@Override` on all overridden methods.
 | `customers`      | `List<Customer>`     |
 | `staffList`      | `List<Staff>`        |
 
+#### Methods
+
+| Method                               | Details                                                                             |
+|--------------------------------------|-------------------------------------------------------------------------------------|
+| `addVehicle(Vehicle)`                | Adds to inventory                                                                   |
+| `removeVehicle(String regNumber)`    | Throws `IllegalArgumentException` if not found                                      |
+| `findVehicle(String regNumber)`      | Returns `Vehicle` or `null`                                                         |
+| `inventory()`                        | Returns unmodifiable view                                                           |
+| `availableVehicles()`                | Returns new list where `available()` is `true`                                      |
+| `addCustomer(Customer)`              | Adds to customers                                                                   |
+| `findCustomer(String customerId)`    | Returns `Customer` or `null`                                                        |
+| `customers()`                        | Returns unmodifiable view                                                           |
+| `activeCustomers()`                  | Returns new list where `active()` is `true`                                         |
+| `addStaff(Staff)`                    | Adds to staff                                                                       |
+| `findStaff(String employeeId)`       | Returns `Staff` or `null`                                                           |
+| `staffList()`                        | Returns unmodifiable view                                                           |
+| `totalStockValue()`                  | Sums `listingPrice()` across all **available** vehicles                             |
+| `totalCommissionDue()`               | Sums `monthlySalary()` across all staff                                             |
+| `printAllRoles(List<Person> people)` | Prints `role()` for each person — accepts a **mixed** `List<Person>` of any subtype |
+| `dealershipName()`                   | Returns the dealership name                                                         |
+
+> **Design Tip — Liskov Substitution:** `printAllRoles(List<Person> people)` accepts any list of `Person` subtypes — `Customer`, `Staff`, `WalkInCustomer`, `Valuator` — because they all share the `role()` method. This is Liskov substitution in practice: any subtype can stand in wherever the parent type is expected.
+
+---
